@@ -27,7 +27,7 @@
   font-size: larger;
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
 }
 
@@ -37,7 +37,7 @@
 
 a:link,
 a:visited {
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
   padding: 8px 15px;
   text-align: center;
@@ -48,7 +48,7 @@ a:visited {
 
 a:hover,
 a:active {
-  background-color: #008755;
+  background-color: #003060;
 }
 
 body {
@@ -60,7 +60,7 @@ body {
   width: 1rem;
   height: 1rem;
   position: fixed;
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
   padding: 2rem;
   border-radius: 50%;
@@ -75,7 +75,7 @@ body {
 }
 
 #plus:hover {
-  background-color: #008755;
+  background-color: #003060;
   animation: plus 0.5s;
 }
 
@@ -110,7 +110,7 @@ table input[type="text"] {
 }
 
 table input[type="submit"] {
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
   padding: 8px 15px;
   text-align: center;
@@ -120,6 +120,11 @@ table input[type="submit"] {
   border: 0;
   width: 100%;
 }
+
+.table1:hover {
+  background-color: #003060 !important;
+}
+
 
 table td > *,
 td {
@@ -132,7 +137,7 @@ td {
   width: 1rem;
   height: 1rem;
   position: fixed;
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
   padding: 2rem;
   border-radius: 50%;
@@ -151,7 +156,7 @@ td {
   width: -0;
   height: 0.8rem;
   padding: .5rem;
-  background-color: #00be78;
+  background-color: #055C9D;
   border-radius: 11px;
   border: 0;
 
@@ -159,7 +164,7 @@ td {
 }
 
 #search:hover{
-  background-color: #008755;
+  background-color: #003060;
   animation: search 1s forwards;
 }
 
@@ -229,7 +234,7 @@ td {
   width: 1rem;
   height: 1rem;
   position: fixed;
-  background-color: #04aa6d;
+  background-color: #055C9D;
   color: white;
   padding: 2rem;
   border-radius: 50%;
@@ -245,7 +250,7 @@ td {
 }
 
 #exit:hover {
-  background-color: #008755;
+  background-color: #003060;
 }
 
 /* Wenn über Search gehovert wird soll das nächste Element (CSS: +) also der Exit-Button animiert werden */

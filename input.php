@@ -37,7 +37,7 @@ include "datenbank.php";
             </select>
         </td>
         <td><input type="text" name="Wohnort" placeholder="Wohnort" ></td>
-        <td><input type="submit" value=" Absenden"></td>
+        <td ><input class="table1" type="submit" value=" Absenden"></td>
     </tr>
 </table>
 
