@@ -84,9 +84,8 @@ body{
 }
 
 
-select{
+table select{
   background-color: #f2f2f2;
-  color: #6e6e6e;
   border: 0;
   padding: .5rem;
   border-radius: 4px;
@@ -94,7 +93,7 @@ select{
   height: 100%;
 }
 
-input[type="text"]{
+table input[type="text"]{
   width: 95%;
   height: 100%;
   padding: .5rem;
@@ -106,7 +105,7 @@ input[type="text"]{
   background-color: #f2f2f2 !important;
 }
 
-input[type="submit"]{
+table input[type="submit"]{
   background-color: #04AA6D;
   color: white;
   padding: 8px 15px;
@@ -119,6 +118,6 @@ input[type="submit"]{
 
 }
 
-td > *, td {
+table td > *, td {
   font-size: 1em;
 }

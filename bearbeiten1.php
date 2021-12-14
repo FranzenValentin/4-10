@@ -27,20 +27,34 @@ if($action == "bearbeiten"){
         <h1> Aktualisieren Sie hier ihre Daten!</h1>
         <form action='bearbeiten.php?action=bearbeiten&ID_Kunden=$P_ID'  method='post'> 
         
-        <input type='text' name='Vorname' value='". $row['Vorname'] . "'>
-        <input type='text' name='Nachname' value='". $row['Nachname'] . "'>
-        <select name='Geschlecht' > 
-            <option value='". $row['Geschlecht'] . "'>" . $row['Geschlecht'] . "</option>";
-            if($row['Geschlecht'] != 'männlich'){ echo "<option value='männlich'>männlich </option>"; }
-            if($row['Geschlecht'] != 'weiblich'){ echo "<option value='weiblich'>weiblich </option>"; }
-            if($row['Geschlecht'] != 'divers'){ echo "<option value='divers'>divers </option>"; }
-            if($row['Geschlecht'] != 'keine Angabe'){ echo "<option value='keine Angabe'>keine Angabe </option>"; }
-        echo "
-        </select>
-        <input type='text' name='Wohnort' value='" . $row['Wohnort'] . "'>
-        
-        <input type='submit' value='Aktualisieren!'>
-        
+        <table id='customers'>
+
+        <tr>
+            <th> Vorname </th>
+            <th> Nachname </th>
+            <th> Geschlecht </th>
+            <th> Wohnort </th>
+            <th id='aktion'> Aktion </th>
+        </tr>
+
+        <tr class='table'>
+
+            <td><input type='text' name='Vorname' value='". $row['Vorname'] . "'></td>
+            <td><input type='text' name='Nachname' value='". $row['Nachname'] . "'></td>
+            <td><select name='Geschlecht' > 
+                <option value='". $row['Geschlecht'] . "'>" . $row['Geschlecht'] . "</option>";
+                if($row['Geschlecht'] != 'männlich'){ echo "<option value='männlich'>männlich </option>"; }
+                if($row['Geschlecht'] != 'weiblich'){ echo "<option value='weiblich'>weiblich </option>"; }
+                if($row['Geschlecht'] != 'divers'){ echo "<option value='divers'>divers </option>"; }
+                if($row['Geschlecht'] != 'keine Angabe'){ echo "<option value='keine Angabe'>keine Angabe </option>"; }
+            echo "
+            </select></td>
+            <td><input type='text' name='Wohnort' value='" . $row['Wohnort'] . "'></td>
+            
+            <td><input type='submit' value='Aktualisieren!'></td>
+
+        </tr>
+        </table>
         </form>";
     }   
 }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="index.php" id="plus">+</a> 
+<a href="input.php" id="plus">+</a> 
 
 
 <?php
