@@ -9,7 +9,7 @@
 </head>
 <body>
 <a href="input.php" id="plus">+</a> 
-<form id="search" action="search.php", method="get">
+<form id="search" action="output.php", method="get">
     🔍
     <input type="text" name="search" id="text"></input>
 </form>
@@ -30,29 +30,65 @@ include "datenbank.php";
         <th> Geschlecht </th>
         <th> Wohnort </th>
         <th id="aktion"> Aktion </th>
-
+        
 </tr>
 
-    <?php
-    $ergebnis = mysqli_query($con, 'select * from personen'); 
-    while($row = mysqli_fetch_array($ergebnis)) { 
-        $Vorname = $row ['Vorname']; 
-        $Nachname = $row ['Nachname'];
-        $Geschlecht = $row ['Geschlecht'];
-        $Wohnort = $row ['Wohnort'];
-        $P_ID = $row['P_ID']; 
-    //Ausgabe mit Links zu bearbeiten und kommentieren
-            echo"
-            <tr>
-                <td> $Vorname </td>
-                <td> $Nachname </td>
-                <td> $Geschlecht </td>
-                <td> $Wohnort </td>
-                <td> <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
-                <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> </td></td>
-            </tr> ";
+<?php
+    $search = $_GET["search"] ?? null;
+    
+    if(isset($search)){
+        $search = "%".$search."%";
+        $sql = " SELECT * FROM 'personen' WHERE 'Nachname'= $search OR 'Vorname'= $search OR'Geschlecht'= 
+        $search OR'Wohnort'= $search ";
         
+    } else {
+        $sql = " SELECT * from 'personen' " ;
     }
+    echo $sql;
+    $ergebnis = mysqli_query($con, $sql); 
+    print_r($sql);
+        while($row = mysqli_fetch_array($ergebnis)) { 
+            $Vorname = $row ['Vorname']; 
+            $Nachname = $row ['Nachname'];
+            $Geschlecht = $row ['Geschlecht'];
+            $Wohnort = $row ['Wohnort'];
+            $P_ID = $row['P_ID']; 
+            echo"
+                <tr>
+                    <td> $Vorname </td>
+                    <td> $Nachname </td>
+                    <td> $Geschlecht </td>
+                    <td> $Wohnort </td>
+                    <td> 
+                        <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
+                        <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> 
+                    </td>
+                </tr> 
+                ";
+        }
+
+    
+
+
+    // $ergebnis = mysqli_query($con, 'select * from personen'); 
+    // while($row = mysqli_fetch_array($ergebnis)) { 
+    //     $Vorname = $row ['Vorname']; 
+    //     $Nachname = $row ['Nachname'];
+    //     $Geschlecht = $row ['Geschlecht'];
+    //     $Wohnort = $row ['Wohnort'];
+    //     $P_ID = $row['P_ID']; 
+    //     //Ausgabe mit Links zu bearbeiten und kommentieren
+    //         echo"
+    //         <tr>
+    //             <td> $Vorname </td>
+    //             <td> $Nachname </td>
+    //             <td> $Geschlecht </td>
+    //             <td> $Wohnort </td>
+    //             <td> <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
+    //             <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> </td></td>
+    //         </tr> ";
+        
+    // }
 
     ?>
 </table>

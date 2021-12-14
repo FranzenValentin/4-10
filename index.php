@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <a href="login.php" id="button"></a>
+        <a href="input.php" id="button"></a>
         <img src="img/start.png" alt="">
     </div>
 </body>
