@@ -9,6 +9,11 @@
 </head>
 <body>
 <a href="input.php" id="plus">+</a> 
+<form id="search" action="search.php", method="get">
+    🔍
+    <input type="text" name="search" id="text"></input>
+</form>
+<!-- <a id="search">🔍<input type="text" id="text"></a>  -->
 
 
 <?php
