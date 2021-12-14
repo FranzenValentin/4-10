@@ -37,8 +37,8 @@ include "datenbank.php";
     $search = $_GET["search"] ?? null;
     
     if(isset($search)){
-        $search = '"%'.$search.'%"';
-        $sql = " SELECT * FROM personen WHERE (Nachname LIKE $search) OR (Vorname LIKE $search) OR (Geschlecht LIKE $search) OR (Wohnort LIKE $search) ";
+        $search = 'LOWER("%'.$search.'%")'; //LOWER, damit bei der ABfrage die Großschreibung nicht berücksichtigt wird
+        $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
         
     } else {
         $sql = " SELECT * from personen " ;
