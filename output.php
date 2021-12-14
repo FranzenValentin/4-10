@@ -31,7 +31,7 @@
     echo '<a href="input.php" id="plus">+</a>
         <form id="search" action="output.php", method="get">
             🔍
-            <input type="text" name="search" id="text">
+            <input type="text" name="search" value="' . $search . '" id="text">
         </form>';
 
     if (isset($search)) {
