@@ -14,11 +14,6 @@
 </head>
 
 <body>
-    <a href="input.php" id="plus">+</a>
-    <form id="search" action="output.php" , method="get">
-        🔍
-        <input type="text" name="search" id="text"></input>
-    </form>
     <!-- <a id="search">🔍<input type="text" id="text"></a>  -->
 
 
@@ -29,7 +24,30 @@
 
     <!-- Tabelle erstellen -->
 
-    <table id="customers">
+    <?php
+    $search = $_GET["search"] ?? null;
+
+    # Exit muss direkt nach Search Button kommen (fürs CSS)
+    echo '<a href="input.php" id="plus">+</a>
+        <form id="search" action="output.php", method="get">
+            🔍
+            <input type="text" name="search" id="text">
+        </form>';
+
+    if (isset($search)) {
+        $t = $search;
+        $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der ABfrage die Großschreibung nicht berücksichtigt wird
+        $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
+        $titel = "Kunden, Suche: $t";
+        echo "<a href='output.php' id='exit'>X</a> ";
+    } else {
+        $sql = " SELECT * from personen ";
+        $titel = "Kunden";
+    }
+    $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con));
+    echo "<h1> $titel</h1>";
+
+    echo '    <table id="customers">
         <tr>
             <th> Vorname </th>
             <th> Nachname </th>
@@ -37,30 +55,15 @@
             <th> Wohnort </th>
             <th id="aktion"> Aktion </th>
 
-        </tr>
+        </tr>';
 
-        <?php
-        $search = $_GET["search"] ?? null;
-
-        if (isset($search)) {
-            $t = $search;
-            $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der ABfrage die Großschreibung nicht berücksichtigt wird
-            $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
-            $titel = "Kunden, Suche: $t";
-            echo "<a href='output.php' id='exit'>X</a> ";
-        } else {
-            $sql = " SELECT * from personen ";
-            $titel = "Kunden";
-        }
-        $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con));
-        echo "<h1> $titel</h1>";
-        while ($row = mysqli_fetch_array($ergebnis)) {
-            $Vorname = $row['Vorname'];
-            $Nachname = $row['Nachname'];
-            $Geschlecht = $row['Geschlecht'];
-            $Wohnort = $row['Wohnort'];;
-            //Ausgabe mit Links zu bearbeiten und kommentieren
-            echo "
+    while ($row = mysqli_fetch_array($ergebnis)) {
+        $Vorname = $row['Vorname'];
+        $Nachname = $row['Nachname'];
+        $Geschlecht = $row['Geschlecht'];
+        $Wohnort = $row['Wohnort'];;
+        //Ausgabe mit Links zu bearbeiten und kommentieren
+        echo "
             <tr>
                 <td> $Vorname </td>
                 <td> $Nachname </td>
@@ -69,9 +72,9 @@
                 <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "'>löschen</a> 
                 <a href='bearbeiten1.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "'>bearbeiten</a> </td></td>
             </tr> ";
-        }
+    }
 
-        ?>
+    ?>
     </table>
 </body>
 
