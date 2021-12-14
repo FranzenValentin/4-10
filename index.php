@@ -18,17 +18,28 @@ include "datenbank.php";
 <h1> Bitte tragen Sie hier ihre Daten ein!</h1>
 <form action="eintragen.php?action=insert"  method="post"> 
 
-<input type="text" name="Vorname" placeholder="Vorname" >
-<input type="text" name="Nachname" placeholder="Nachname" >
-<select name="Geschlecht" placeholder="Geschlecht" > 
-    <option value="männlich">männlich </option>
-    <option value="weiblich">weiblich </option>
-    <option value="divers">divers </option>
-    <option value="keine Angabe">keine Angabe </option>
-</select>
-<input type="text" name="Wohnort" placeholder="Wohnort" >
-
-<input type="submit" value=" Absenden!">
+<table id="customers">
+    <tr>
+        <th> Vorname </th>
+        <th> Nachname </th>
+        <th> Geschlecht </th>
+        <th> Wohnort </th>
+        <th id="aktion"> Aktion </th>
+    </tr>
+    <tr class="table" >
+        <td ><input type="text" name="Vorname" placeholder="Vorname" ></td>
+        <td><input type="text" name="Nachname" placeholder="Nachname" ></td>
+        <td><select name="Geschlecht" placeholder="Geschlecht" > 
+                <option value="männlich">männlich </option>
+                <option value="weiblich">weiblich </option>
+                <option value="divers">divers </option>
+                <option value="keine Angabe">keine Angabe </option>
+            </select>
+        </td>
+        <td><input type="text" name="Wohnort" placeholder="Wohnort" ></td>
+        <td><input type="submit" value=" Absenden"></td>
+    </tr>
+</table>
 
 </form>
 </html>

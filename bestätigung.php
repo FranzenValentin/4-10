@@ -20,7 +20,41 @@ include "datenbank.php";
 $action = $_GET["action"] ??null ;
 $P_ID = $_GET["id_kunden"] ??null ;
 if($action == "löschen"){
+    
+    $sql = "SELECT * FROM personen WHERE P_ID = '$P_ID'";
+    $result = mysqli_query($con, $sql);
+    
+    echo '<table id="customers">';
+    
+    echo "<tr>
+    <th> Vorname </th>
+    <th> Nachname </th>
+    <th> Geschlecht </th>
+    <th> Wohnort </th>
+    </tr>";
+
+    while($row = mysqli_fetch_array($result)) { 
+        $Vorname = $row ['Vorname']; 
+        $Nachname = $row ['Nachname'];
+        $Geschlecht = $row ['Geschlecht'];
+        $Wohnort = $row ['Wohnort'];
+        $P_ID = $row['P_ID']; 
+    //Ausgabe mit Links zu bearbeiten und kommentieren
+            echo"
+            <tr>
+                <td> $Vorname </td>
+                <td> $Nachname </td>
+                <td> $Geschlecht </td>
+                <td> $Wohnort </td>
+            </tr> ";
+        
+    }
+
+    echo "</table>";
+
+
     echo 'Möchten Sie den Datensatz wirklich löschen?';
+
     echo"<a href='bestätigung.php?bestätigung=1&id_kunden=$P_ID'>ja</a> 
             <a href='output.php'>nein</a>";
 }
