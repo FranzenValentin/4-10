@@ -156,7 +156,7 @@ td {
   display: none;
 }
 
-#search:hover {
+#search:hover > #exit{
   background-color: #008755;
 }
 
