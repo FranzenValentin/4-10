@@ -37,14 +37,18 @@ include "datenbank.php";
     $search = $_GET["search"] ?? null;
     
     if(isset($search)){
+        $t = $search ;
         $search = 'LOWER("%'.$search.'%")'; //LOWER, damit bei der ABfrage die Großschreibung nicht berücksichtigt wird
         $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
-        
+        $titel = "Kunden, Suche: $t";
+        echo "<a href='output.php' id='exit'>X</a> ";
     } else {
         $sql = " SELECT * from personen " ;
+        $titel = "Kunden";
+
     }
     $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con)); 
-    
+    echo"<h1> $titel</h1>";
     while($row = mysqli_fetch_array($ergebnis)) { 
         $Vorname = $row ['Vorname']; 
         $Nachname = $row ['Nachname'];
