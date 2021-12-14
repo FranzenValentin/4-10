@@ -37,58 +37,33 @@ include "datenbank.php";
     $search = $_GET["search"] ?? null;
     
     if(isset($search)){
-        $search = "%".$search."%";
-        $sql = " SELECT * FROM 'personen' WHERE 'Nachname'= $search OR 'Vorname'= $search OR'Geschlecht'= 
-        $search OR'Wohnort'= $search ";
+        $search = '"%'.$search.'%"';
+        $sql = " SELECT * FROM personen WHERE (Nachname LIKE $search) OR (Vorname LIKE $search) OR (Geschlecht LIKE $search) OR (Wohnort LIKE $search) ";
         
     } else {
-        $sql = " SELECT * from 'personen' " ;
+        $sql = " SELECT * from personen " ;
     }
-    echo $sql;
-    $ergebnis = mysqli_query($con, $sql); 
-    print_r($sql);
-        while($row = mysqli_fetch_array($ergebnis)) { 
-            $Vorname = $row ['Vorname']; 
-            $Nachname = $row ['Nachname'];
-            $Geschlecht = $row ['Geschlecht'];
-            $Wohnort = $row ['Wohnort'];
-            $P_ID = $row['P_ID']; 
-            echo"
-                <tr>
-                    <td> $Vorname </td>
-                    <td> $Nachname </td>
-                    <td> $Geschlecht </td>
-                    <td> $Wohnort </td>
-                    <td> 
-                        <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
-                        <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> 
-                    </td>
-                </tr> 
-                ";
-        }
-
+    $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con)); 
     
-
-
-    // $ergebnis = mysqli_query($con, 'select * from personen'); 
-    // while($row = mysqli_fetch_array($ergebnis)) { 
-    //     $Vorname = $row ['Vorname']; 
-    //     $Nachname = $row ['Nachname'];
-    //     $Geschlecht = $row ['Geschlecht'];
-    //     $Wohnort = $row ['Wohnort'];
-    //     $P_ID = $row['P_ID']; 
-    //     //Ausgabe mit Links zu bearbeiten und kommentieren
-    //         echo"
-    //         <tr>
-    //             <td> $Vorname </td>
-    //             <td> $Nachname </td>
-    //             <td> $Geschlecht </td>
-    //             <td> $Wohnort </td>
-    //             <td> <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
-    //             <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> </td></td>
-    //         </tr> ";
-        
-    // }
+    while($row = mysqli_fetch_array($ergebnis)) { 
+        $Vorname = $row ['Vorname']; 
+        $Nachname = $row ['Nachname'];
+        $Geschlecht = $row ['Geschlecht'];
+        $Wohnort = $row ['Wohnort'];
+        $P_ID = $row['P_ID']; 
+        echo"
+            <tr>
+                <td> $Vorname </td>
+                <td> $Nachname </td>
+                <td> $Geschlecht </td>
+                <td> $Wohnort </td>
+                <td> 
+                    <a href='bestätigung.php?action=löschen&id_kunden=". $row['P_ID'] ."'>löschen</a> 
+                    <a href='bearbeiten1.php?action=bearbeiten&id_kunden=". $row['P_ID'] ."'>bearbeiten</a> 
+                </td>
+            </tr> 
+            ";
+    }
 
     ?>
 </table>
