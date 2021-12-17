@@ -18,15 +18,18 @@
     if ($t == true) {
         $benutzer = $_POST["Benutzername"] ?? null;
         $passwort = $_POST["Passwort"] ?? null;
-        echo $benutzer;
     } else {
         header('location: login.php');
     }
     $sql = "SELECT * FROM benutzer WHERE Benutzername = '$benutzer'";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     $row = mysqli_fetch_array($result);
-    echo $row['Benutzername'];
+    $pw = $row['Passwort'];
+    if($passwort == $pw){
+        header("location:input.php");
+    }
 
+    
 
     ?>
 </body>
