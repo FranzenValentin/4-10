@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,26 @@
     <title>Eintragen</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
 </body>
+
 </html><?php
 
-include "datenbank.php";
+        include "datenbank.php";
 
-$vorname = $_POST["Vorname"] ?? null;
-$nachname = $_POST["Nachname"] ?? null;
-$geschlecht = $_POST["Geschlecht"] ?? null;
-$wohnort = $_POST["Wohnort"] ?? null;
+        $vorname = $_POST["Vorname"] ?? null;
+        $nachname = $_POST["Nachname"] ?? null;
+        $geschlecht = $_POST["Geschlecht"] ?? null;
+        $wohnort = $_POST["Wohnort"] ?? null;
 
-$action = $_GET["action"] ?? null;
+        $action = $_GET["action"] ?? null;
 
-if($action == "insert") {
-    $query = "INSERT INTO personen (Nachname, Vorname, Geschlecht, Wohnort) VALUES ('$nachname','$vorname','$geschlecht','$wohnort')";
-    mysqli_query($con, $query) or die(mysqli_error($con));
-    header('location: output.php');
-}
+        if ($action == "insert") {
+            $query = "INSERT INTO personen (Nachname, Vorname, Geschlecht, Wohnort) VALUES ('$nachname','$vorname','$geschlecht','$wohnort')";
+            mysqli_query($con, $query) or die(mysqli_error($con));
+            header('location: output.php');
+        }
 
-?>
+        ?>

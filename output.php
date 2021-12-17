@@ -13,11 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
+
 <body>
     <?php
-        include "datenbank.php";
-        $search = $_GET["search"] ?? null;
+    include "datenbank.php";
+    $search = $_GET["search"] ?? null;
     ?>
+    <a href="input.php" id="plus">+</a>
 
 
     <!-- Such-button -->
@@ -28,23 +30,22 @@
     <!-- Tabelle erstellen -->
     <?php
     // Daten abfragen die zur Suche passen, falls eine Suche definiert ist.
-        if (isset($search)) {
-            $t = $search;
-            $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der Abfrage die Großschreibung nicht berücksichtigt wird
-            $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
-            $titel = "Kunden, Suche: $t";
-            echo "<a href='output.php' id='exit'>X</a> ";
-        } 
-        else { //Falls keine Suche ($search) definiert ist, alle Daten der Tabelle abfragen.
-        
-            $sql = " SELECT * from personen ";
-            $titel = "Kunden";
-        }
+    if (isset($search)) {
+        $t = $search;
+        $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der Abfrage die Großschreibung nicht berücksichtigt wird
+        $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
+        $titel = "Kunden, Suche: $t";
+        echo "<a href='output.php' id='exit'>X</a> ";
+    } else { //Falls keine Suche ($search) definiert ist, alle Daten der Tabelle abfragen.
 
-        $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con));
-        echo "<h1> $titel</h1>";
+        $sql = " SELECT * from personen ";
+        $titel = "Kunden";
+    }
 
-        echo '    <table id="customers">   
+    $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con));
+    echo "<h1> $titel</h1>";
+
+    echo '    <table id="customers">   
             <tr>
                 <th> Vorname </th>
                 <th> Nachname </th>
@@ -54,13 +55,13 @@
 
             </tr>';
 
-        while ($row = mysqli_fetch_array($ergebnis)) {
-            $Vorname = $row['Vorname'];
-            $Nachname = $row['Nachname'];
-            $Geschlecht = $row['Geschlecht'];
-            $Wohnort = $row['Wohnort'];;
-            //Ausgabe mit Links zu bearbeiten und kommentieren
-            echo "
+    while ($row = mysqli_fetch_array($ergebnis)) {
+        $Vorname = $row['Vorname'];
+        $Nachname = $row['Nachname'];
+        $Geschlecht = $row['Geschlecht'];
+        $Wohnort = $row['Wohnort'];;
+        //Ausgabe mit Links zu bearbeiten und kommentieren
+        echo "
                 <tr>
                     <td> $Vorname </td>
                     <td> $Nachname </td>
@@ -69,7 +70,7 @@
                     <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "'>löschen</a> 
                     <a href='bearbeiten.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "'>bearbeiten</a> </td></td>
                 </tr> ";
-        }
+    }
 
     ?>
     </table>

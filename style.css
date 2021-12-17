@@ -27,7 +27,7 @@
   font-size: larger;
   padding-top: 12px;
   padding-bottom: 12px;
-  background-color: #055C9D;
+  background-color: #055c9d;
   color: white;
 }
 
@@ -37,7 +37,7 @@
 
 a:link,
 a:visited {
-  background-color: #055C9D;
+  background-color: #055c9d;
   color: white;
   padding: 8px 15px;
   text-align: center;
@@ -60,7 +60,7 @@ body {
   width: 0rem;
   height: 0rem;
   position: fixed;
-  background-color: #055C9D;
+  background-color: #055c9d;
   color: white;
   padding: 2rem;
   border-radius: 50%;
@@ -110,7 +110,7 @@ table input[type="text"] {
 }
 
 table input[type="submit"] {
-  background-color: #055C9D;
+  background-color: #055c9d;
   color: white;
   padding: 8px 15px;
   text-align: center;
@@ -125,14 +125,13 @@ table input[type="submit"] {
   background-color: #003060 !important;
 }
 
-
 table td > *,
 td {
   font-size: 1em;
 }
 
-#Anmelden{
-  background-color: #055C9D;
+#Anmelden {
+  background-color: #055c9d;
   color: white;
   padding: 8px 15px;
   text-align: center;
@@ -141,17 +140,15 @@ td {
   border-radius: 30px;
   border: none;
   align-items: center;
-
 }
 
-.login{
+.login {
   width: 20%;
   height: 26px;
   vertical-align: middle;
-
 }
 
-input[type=search1] {
+input[type="search1"] {
   bottom: 2rem;
   left: 7rem;
   width: 11rem;
@@ -160,31 +157,29 @@ input[type=search1] {
   border-radius: 30px;
   font-size: 16px;
   color: white;
-  background-color: #055C9D;
-  background-position: 10px 10px; 
+  background-color: #055c9d;
+  background-position: 10px 10px;
   background-repeat: no-repeat;
-  padding: 8px 15px ;
+  padding: 8px 15px;
   -webkit-transition: width 0.4s ease-in-out;
   transition: width 0.4s ease-in-out;
   z-index: 100;
   font-size: 2rem;
   position: fixed;
-  
 }
 
-
-input[type=search1]:focus {
-  width: 50%;
+input[type="search1"]:focus {
+  width: 20%;
   border: none;
 }
 
-#exit{
+#exit {
   bottom: 2rem;
   left: 21rem;
   width: 0rem;
   height: 0rem;
   position: fixed;
-  background-color: #055C9D;
+  background-color: #055c9d;
   color: white;
   padding: 2rem;
   border-radius: 50%;
@@ -195,4 +190,71 @@ input[type=search1]:focus {
   user-select: none;
   box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
   z-index: 99;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }

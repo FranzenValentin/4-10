@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +13,12 @@ session_start();
     <link rel="stylesheet" href="index.css">
 
 </head>
+
 <body>
     <div class="container">
         <a href="input.php" id="button"></a>
         <img src="img/start.png" alt="">
     </div>
 </body>
+
 </html>
