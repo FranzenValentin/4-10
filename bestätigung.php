@@ -28,7 +28,7 @@ if ($action == "löschen") {
     $sql = "SELECT * FROM personen WHERE P_ID = '$P_ID'";
     $result = mysqli_query($con, $sql);
 
-    echo '<table id="customers">';
+    echo '<table class="customers">';
 
     echo "<tr>
     <th> Vorname </th>

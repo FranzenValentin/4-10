@@ -34,7 +34,7 @@
         <h1> Aktualisieren Sie hier ihre Daten!</h1>
         <form action='bearbeiten.php?action=bearbeiten_true&ID_Kunden=$P_ID'  method='post'> 
         
-        <table id='customers'>
+        <table class='customers'>
 
         <tr>
             <th> Vorname </th>

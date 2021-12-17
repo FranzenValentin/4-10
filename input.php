@@ -22,7 +22,7 @@
     <a href="output.php" id="plus1">Zur Datenbank</a>
     <form action="eintragen.php?action=insert" method="post">
 
-        <table id="customers">
+        <table class="customers">
             <tr>
                 <th> Vorname </th>
                 <th> Nachname </th>

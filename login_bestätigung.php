@@ -33,7 +33,7 @@
     if($passwort == $pw){
         $_SESSION['Benutzername']=$bn;
         $_SESSION['Passwort']=$pw;
-        header("location:input.php");
+        header("location:output.php");
         
     } else {
         header("location:login.php?action=false");

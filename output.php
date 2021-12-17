@@ -46,7 +46,7 @@
     $ergebnis = mysqli_query($con, $sql) or die(mysqli_error($con));
     echo "<h1> $titel</h1>";
 
-    echo '    <table id="customers">   
+    echo '    <table class="customers">   
             <tr>
                 <th> Vorname </th>
                 <th> Nachname </th>
