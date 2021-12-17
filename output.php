@@ -28,12 +28,9 @@
 
     //   Exit muss direkt nach Search Button kommen (fürs CSS)
 
-    echo '<a href="input.php" id="plus">+</a>
-        <form id="search" action="output.php", method="get">
-            🔍
-            <input type="text" name="search" value="' . $search . '" id="text">
-        </form>';
-
+    echo '<a href="input.php" id="plus">+</a> ';
+        
+ 
     if (isset($search)) {
         $t = $search;
         $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der ABfrage die Großschreibung nicht berücksichtigt wird
