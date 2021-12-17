@@ -30,6 +30,7 @@
 
     <!-- Tabelle erstellen -->
     <?php
+
     // Daten abfragen die zur Suche passen, falls eine Suche definiert ist.
     if (isset($search)) {
         $t = $search;
