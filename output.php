@@ -70,7 +70,7 @@
                 <td> $Geschlecht </td>
                 <td> $Wohnort </td>
                 <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "'>löschen</a> 
-                <a href='bearbeiten1.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "'>bearbeiten</a> </td></td>
+                <a href='bearbeiten.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "'>bearbeiten</a> </td></td>
             </tr> ";
     }
 
