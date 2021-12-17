@@ -57,8 +57,8 @@ body {
 #plus {
   bottom: 2rem;
   left: 2rem;
-  width: 1rem;
-  height: 1rem;
+  width: 0rem;
+  height: 0rem;
   position: fixed;
   background-color: #055C9D;
   color: white;
@@ -131,69 +131,6 @@ td {
   font-size: 1em;
 }
 
-#exit {
-  bottom: 2rem;
-  left: 14rem;
-  width: 1rem;
-  height: 1rem;
-  position: fixed;
-  background-color: #055C9D;
-  color: white;
-  padding: 2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  user-select: none;
-  box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
-  text-align: none;
-  animation: exitMoveOut 1s forwards;
-}
-
-#exit:hover {
-  background-color: #003060;
-}
-
-/* Wenn über Search gehovert wird soll das nächste Element (CSS: +) also der Exit-Button animiert werden */
-#search:hover + #exit{
-  animation: exitMoveIn 1s forwards;
-}
-
-@keyframes exitMoveIn {
-  0%{
-    left: 14rem;
-  }
-
-  100%{
-    left: 25rem;
-  }
-}
-
-@keyframes exitMoveOut {
-  0%{
-    left: 25rem;
-  }
-
-  100%{
-    left: 14rem;
-  }
-}
-
-@keyframes exit {
-  0% {
-    width: 1rem;
-    display: block !important;
-  }
-
-  100% {
-    width: 12rem;
-    border-radius: 5rem;
-    display: block;
-  }
-}
-
 #Anmelden{
   background-color: #055C9D;
   color: white;
@@ -216,12 +153,13 @@ td {
 
 input[type=search1] {
   bottom: 2rem;
-  left: 8rem;
-  width: 6rem;
-  height: 2rem;
+  left: 7rem;
+  width: 11rem;
+  height: 3rem;
   border: none;
   border-radius: 30px;
   font-size: 16px;
+  color: white;
   background-color: #055C9D;
   background-position: 10px 10px; 
   background-repeat: no-repeat;
@@ -238,4 +176,23 @@ input[type=search1] {
 input[type=search1]:focus {
   width: 50%;
   border: none;
+}
+
+#exit{
+  bottom: 2rem;
+  left: 21rem;
+  width: 0rem;
+  height: 0rem;
+  position: fixed;
+  background-color: #055C9D;
+  color: white;
+  padding: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  user-select: none;
+  box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
