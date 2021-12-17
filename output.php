@@ -14,17 +14,18 @@
 
 </head>
 <body>
-<?php
-    include "datenbank.php";
-?>
+    <?php
+        include "datenbank.php";
+        $search = $_GET["search"] ?? null;
+    ?>
 
 <form action="output.php" method="get">
-  <input type="search1" name="search" placeholder="🔍Search..." value="' . $search . '">
+  <input type="search1" name="search" placeholder="🔍Search..." value="<?php echo $search; ?>">
 </form>
 
     <!-- Tabelle erstellen -->
     <?php
-    $search = $_GET["search"] ?? null;
+    
 
     //   Exit muss direkt nach Search Button kommen (fürs CSS)
 
