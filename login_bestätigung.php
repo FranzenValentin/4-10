@@ -29,11 +29,13 @@
     $bn = $row['Benutzername'];
     $pw = $row['Passwort'];
     if($passwort == $pw){
+        $_SESSION['Benutzername']=$bn;
+        $_SESSION['Passwort']=$pw;
         header("location:input.php");
+        
     } else {
         header("location:login.php?action=false");
-        $_SESSION["Benutzername"]="$bn";
-        $_SESSION["Passwort"]="$pw";
+        
     }
 
     

@@ -46,10 +46,7 @@
         </table>
 
     </form>
-    <?php
-    echo $_SESSION["Benutzername"];
-    echo $_SESSION["Passwort"];
-    ?>
+
 </body>
 
 </html>
