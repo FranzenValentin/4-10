@@ -51,7 +51,7 @@ if($action == "bearbeiten"){
             </select></td>
             <td><input type='text' name='Wohnort' value='" . $row['Wohnort'] . "'></td>
             
-            <td><input type='submit' value='Aktualisieren!'></td>
+            <td><input type='submit' value='Aktualisieren!' class='table1'> </td>
 
         </tr>
         </table>
