@@ -13,7 +13,7 @@
 
     <h2>Login</h2>
 
-    <form action="login.php?login=true" method="POST">
+    <form action="login_bestätigung.php?login=true" method="POST">
         <!-- Eingabemaske -->
         <label for="Benutzername"><b>Benutzername</b></label>
         <input type="text" placeholder="Benutzername" name="Benutzername" id="Benutzername" required>
@@ -22,10 +22,6 @@
 
         <button type="submit">Login</button>
     </form>
-
-    $login =
-
-
 
 
 </body>

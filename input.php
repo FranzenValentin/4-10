@@ -7,16 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eingabe</title>
     <link rel="stylesheet" href="style.css">
+    <?php
+        include "datenbank.php";
+    ?>
 </head>
 
 <body>
 
 
-    <?php
-    include "datenbank.php";
-    ?>
+
 
     <h1> Bitte tragen Sie hier ihre Daten ein!</h1>
+    <a href="output.php" id="plus1">Zur Datenbank</a>
     <form action="eintragen.php?action=insert" method="post">
 
         <table id="customers">
