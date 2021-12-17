@@ -9,25 +9,25 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="search.js"></script> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
 <body>
-    <!-- <a id="search">🔍<input type="text" id="text"></a>  -->
-
-
-    <?php
+<?php
     include "datenbank.php";
+?>
 
-    ?>
+<form action="output.php" method="get">
+  <input type="search1" name="search" placeholder="🔍Search..." value="' . $search . '">
+</form>
 
     <!-- Tabelle erstellen -->
-
     <?php
     $search = $_GET["search"] ?? null;
 
-    # Exit muss direkt nach Search Button kommen (fürs CSS)
+    //   Exit muss direkt nach Search Button kommen (fürs CSS)
+
     echo '<a href="input.php" id="plus">+</a>
         <form id="search" action="output.php", method="get">
             🔍
