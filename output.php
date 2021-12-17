@@ -1,3 +1,6 @@
+<?php
+    include "datenbank.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,16 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste</title>
     <link rel="stylesheet" href="style.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
 
 </head>
 
 <body>
     <?php
-    include "datenbank.php";
     $search = $_GET["search"] ?? null;
     ?>
     <a href="input.php" id="plus">+</a>

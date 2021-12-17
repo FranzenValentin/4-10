@@ -1,3 +1,6 @@
+<?php
+    include "datenbank.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <?php
-    include "datenbank.php";
-    ?>
+    
 </head>
 
 <body>
+    <h1>hallo</h1>
     <?php
     $t = $_GET["login"] ?? null;
     if ($t == true) {
@@ -24,9 +26,14 @@
     $sql = "SELECT * FROM benutzer WHERE Benutzername = '$benutzer'";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
     $row = mysqli_fetch_array($result);
+    $bn = $row['Benutzername'];
     $pw = $row['Passwort'];
     if($passwort == $pw){
         header("location:input.php");
+    } else {
+        header("location:login.php?action=false");
+        $_SESSION["Benutzername"]="$bn";
+        $_SESSION["Passwort"]="$pw";
     }
 
     

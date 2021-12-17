@@ -1,3 +1,6 @@
+<?php
+    include "datenbank.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestätigung</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -17,9 +21,6 @@
 <html>
 
 <?php
-include "datenbank.php";
-
-
 $action = $_GET["action"] ?? null;
 $P_ID = $_GET["id_kunden"] ?? null;
 if ($action == "löschen") {

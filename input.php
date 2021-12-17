@@ -1,3 +1,6 @@
+<?php
+    include "datenbank.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eingabe</title>
     <link rel="stylesheet" href="style.css">
-    <?php
-        include "datenbank.php";
-    ?>
+    
 </head>
 
 <body>
@@ -45,6 +46,10 @@
         </table>
 
     </form>
+    <?php
+    echo $_SESSION["Benutzername"];
+    echo $_SESSION["Passwort"];
+    ?>
 </body>
 
 </html>

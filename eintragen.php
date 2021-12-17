@@ -1,3 +1,6 @@
+<?php
+    include "datenbank.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eintragen</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -14,9 +18,6 @@
 </body>
 
 </html><?php
-
-        include "datenbank.php";
-
         $vorname = $_POST["Vorname"] ?? null;
         $nachname = $_POST["Nachname"] ?? null;
         $geschlecht = $_POST["Geschlecht"] ?? null;
