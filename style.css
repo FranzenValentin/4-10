@@ -35,8 +35,8 @@
   width: 13rem;
 }
 
-a:link,
-a:visited {
+.a:link,
+.a:visited {
   background-color: #055c9d;
   color: white;
   padding: 8px 15px;
@@ -46,8 +46,8 @@ a:visited {
   border-radius: 30px;
 }
 
-a:hover,
-a:active {
+.a:hover,
+.a:active {
   background-color: #003060;
 }
 
@@ -199,7 +199,6 @@ input[type="search1"]:focus {
   border: none;
 }
 
-
 #exit {
   bottom: 2rem;
   left: 22rem;
@@ -216,86 +215,34 @@ input[type="search1"]:focus {
   font-size: 2rem;
   user-select: none;
   box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
-  z-index: 101;
+  z-index: 99;
 }
 
 #exit:hover {
   background-color: #003060;
 }
 
-
-
-
-
-
-
-
-
-
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-form {
-  border: 3px solid #f1f1f1;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #04aa6d;
+#abmelden {
+  right: 1rem;
+  width: 7rem;
+  height: 0rem;
+  position: absolute;
+  top: 1rem;
+  background-color: #055c9d;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  user-select: none;
+  box-shadow: 0px 0px 49px -2px rgba(0, 0, 0, 0.5);
+  z-index: 102;
   text-align: center;
-  margin: 24px 0 12px 0;
+  text-decoration: none;
+  border-radius: 50px;
 }
 
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
+#abmelden:hover {
+  background-color: #003060;
 }

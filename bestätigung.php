@@ -58,8 +58,8 @@ if ($action == "löschen") {
 
     echo 'Möchten Sie den Datensatz wirklich löschen?       ';
 
-    echo "<a href='bestätigung.php?bestätigung=1&id_kunden=$P_ID'>ja</a> 
-            <a href='output.php'>nein</a>";
+    echo "<a href='bestätigung.php?bestätigung=1&id_kunden=$P_ID' class='a'>ja</a> 
+            <a href='output.php' class='a'>nein</a>";
 }
 
 $bestätigung = $_GET["bestätigung"] ?? null;

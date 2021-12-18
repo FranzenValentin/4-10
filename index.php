@@ -16,7 +16,7 @@ session_start();
 
 <body>
     <div class="container">
-        <a href="login.php" id="button"></a>
+        <a href="login.php" id="button" class='a'></a>
         <img src="img/start.png" alt="">
     </div>
 </body>

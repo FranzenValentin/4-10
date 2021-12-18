@@ -18,9 +18,10 @@
 
 <body>
     <?php
+    include "accoutbutton.php"; //Fügt die Accoountbuttons hinzu.
     $search = $_GET["search"] ?? null;
     ?>
-    <a href="input.php" id="plus">+</a>
+    <a href="input.php" id="plus" class='a'>+</a>
 
 
     <!-- Such-button -->
@@ -37,7 +38,7 @@
         $search = 'LOWER("%' . $search . '%")'; //LOWER, damit bei der Abfrage die Großschreibung nicht berücksichtigt wird
         $sql = " SELECT * FROM personen WHERE (LOWER(Nachname) LIKE $search) OR (LOWER(Vorname) LIKE $search) OR (LOWER(Geschlecht) LIKE $search) OR (LOWER(Wohnort) LIKE $search) ";
         $titel = "Kunden, Suche: $t";
-        echo "<a href='output.php' id='exit'>X</a> ";
+        echo "<a href='output.php' id='exit' class='a'>X</a> ";
     } else { //Falls keine Suche ($search) definiert ist, alle Daten der Tabelle abfragen.
 
         $sql = " SELECT * from personen ";
@@ -69,8 +70,8 @@
                     <td> $Nachname </td>
                     <td> $Geschlecht </td>
                     <td> $Wohnort </td>
-                    <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "'>löschen</a> 
-                    <a href='bearbeiten.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "'>bearbeiten</a> </td></td>
+                    <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "' class='a'>löschen</a> 
+                    <a href='bearbeiten.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "' class='a'>bearbeiten</a> </td></td>
                 </tr> ";
     }
 

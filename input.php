@@ -19,7 +19,7 @@
 
 
     <h1> Bitte tragen Sie hier ihre Daten ein!</h1>
-    <a href="output.php" id="plus1">Zur Datenbank</a>
+    <a href="output.php" id="plus1" class='a'>Zur Datenbank</a>
     <form action="eintragen.php?action=insert" method="post">
 
         <table class="customers">
