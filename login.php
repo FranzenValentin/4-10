@@ -1,7 +1,7 @@
 <?php
-    session_start();
-    $con = mysqli_connect("localhost", "21_franzen_valentin", "Passwort", "21_franzen_valentin_4-10");
-    mysqli_set_charset($con, "utf8");
+session_start();
+$con = mysqli_connect("localhost", "21_franzen_valentin", "Passwort", "21_franzen_valentin_4-10");
+mysqli_set_charset($con, "utf8");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anmeldung</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
@@ -29,6 +29,13 @@
         <button type="submit">Login</button>
     </form>
 
+    <?php
+    $action = $_GET["action"] ?? null;
+
+    if ($action == "false") {
+        echo "Ihr Password oder Benutzername war falsch.";
+    }
+    ?>
 
 </body>
 
