@@ -1,3 +1,8 @@
+<?php
+session_start();
+$con = mysqli_connect("localhost", "21_franzen_valentin", "Passwort", "21_franzen_valentin_4-10");
+mysqli_set_charset($con, "utf8");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,23 +15,21 @@
 <?php
 
 $register = $_GET["register"] ?? null;
-$wrong = $GET_["wrong"] ?? null;
+$wrong = $_GET["wrong"] ?? null;
 
 if ($wrong == true) {
-    echo "wooooooooooow";
+    echo "Die Passwörter stimmern nicht überein. Versuchen Sie es erneut.";
 }
 
 if ($register == true) {
     $bname = $_POST["bname"] ?? null;
     $psw = $_POST["psw"] ?? null;
     $pswwdh = $_POST["psw-wdh"] ?? null;
-    echo $bname;
-    echo $psw;
-    echo $pswwdh;
     if ($psw == $pswwdh) {
-        echo "jaaaaaaa";
+        $sql = "INSERT INTO benutzer (Benutzername, Passwort) VALUES ('$bname','$psw')";
+        mysqli_query($con, $sql) or die(mysqli_error($con));
     } else {
-        header("location:registrieren.php?wrong=true");
+        header("location:registrieren.php?wrong=true"); // falls beide Passwörter nicht übereinstimmen, kommt eine Fehlermeldung
     }
 } else {
 ?>
