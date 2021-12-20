@@ -1,5 +1,5 @@
 <?php
-    include "datenbank.php";
+include "datenbank.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,10 +10,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eingabe</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
+    <?php
+    include "accoutbutton.php"; //Fügt die Accoountbuttons hinzu.
+    ?>
 
 
 

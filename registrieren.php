@@ -28,8 +28,10 @@ if ($register == true) {
     if ($psw == $pswwdh) {
         $sql = "INSERT INTO benutzer (Benutzername, Passwort) VALUES ('$bname','$psw')";
         mysqli_query($con, $sql) or die(mysqli_error($con));
+        echo "Sie haben sich erfolgreich registriert. Sie werden in Kürze weitergeleitet.";
+        header("location:login.php?reg=$bname");
     } else {
-        header("location:registrieren.php?wrong=true"); // falls beide Passwörter nicht übereinstimmen, kommt eine Fehlermeldung
+        header("location:registrieren.php?wrong=true");
     }
 } else {
 ?>
