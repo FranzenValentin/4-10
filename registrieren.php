@@ -11,6 +11,7 @@ mysqli_set_charset($con, "utf8");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrieren</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <?php
 
@@ -35,20 +36,25 @@ if ($register == true) {
     }
 } else {
 ?>
-    <form action="registrieren.php?register=true" method="POST">
-        <label><b>Benutzername</b></label>
-        <input type="text" placeholder="Benutzername" name="bname" required>
+    <div class="bigcontainer">
+        <h2>Registrieren</h2>
+        <form action="registrieren.php?register=true" method="POST">
+            <label><b>Benutzername</b></label><br>
+            <input class="Benutzername" type="text" placeholder="Benutzername" name="bname" required>
+            <br>
+            <label><b>Passwort</b></label><br>
+            <input class="Passwort" type="password" placeholder="Passwort" name="psw" required>
+            <br>
+            <label><b>Wiederholung Passwort</b></label><br>
+            <input class="Passwort" type="password" placeholder="Passwort" name="psw-wdh" required>
 
-        <label><b>Passwort</b></label>
-        <input type="password" placeholder="Passwort" name="psw" required>
+            <div class="logincontainer">
+                <button type="submit" class="Login">Registrieren</button>
+                <a class="Login" href="login.php">Login</a>
+            </div>
 
-        <label><b>Wiederholung Passwort</b></label>
-        <input type="password" placeholder="Passwort" name="psw-wdh" required>
-
-        <button type="button" class="Abbrechen">Abbrechen</button>
-        <button type="submit" class="Registrieren">Registrieren</button>
-
-    </form>
+        </form>
+    </div>
 <?php } ?>
 
 

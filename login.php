@@ -16,27 +16,6 @@ mysqli_set_charset($con, "utf8");
 </head>
 
 <body>
-
-    <h2>Login</h2>
-    <?php
-    $reg = $_GET["reg"] ?? null;
-    ?>
-
-    <form action="login_bestätigung.php?login=true" method="POST">
-        <!-- Eingabemaske -->
-        <label for="Benutzername"><b>Benutzername</b></label>
-        <input type="text" placeholder="Benutzername" name="Benutzername" id="Benutzername" value="<?php echo $reg; ?>" required>
-        <label for="Passwort"><b>Passwort</b></label>
-        <input type="password" placeholder="Passwort" name="Passwort" id="Passwort" required>
-
-        <button type="submit" class="Login">Login</button>
-
-    </form>
-
-    <form action="registrieren.php">
-        <button type="submit" class="Login">Registrieren</button>
-    </form>
-
     <?php
     $action = $_GET["action"] ?? null;
 
@@ -44,6 +23,29 @@ mysqli_set_charset($con, "utf8");
         echo "Ihr Password oder Benutzername ist falsch.";
     }
     ?>
+    <div class="bigcontainer">
+
+        <h2>Login</h2>
+        <?php
+        $reg = $_GET["reg"] ?? null;
+        ?>
+        <form action=" login_bestätigung.php?login=true" method="POST">
+            <!-- Eingabemaske -->
+            <label for="Benutzername"><b>Benutzername</b></label><br>
+            <input type="text" placeholder="Benutzername" name="Benutzername" class="Benutzername" value="<?php echo $reg; ?>" required>
+            <br>
+            <label for="Passwort"><b>Passwort</b></label><br>
+            <input type="password" placeholder="Passwort" name="Passwort" class="Passwort" required>
+            <br>
+            <div class="logincontainer">
+                <button type="submit" class="Login">Login</button>
+                <a class="Login" href="registrieren.php">Registrieren</a>
+            </div>
+    </div>
+
+
+
+    </form>
 
 </body>
 

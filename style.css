@@ -272,29 +272,48 @@ p.Account :hover {
   background-color: #003060;
 }
 
-#Benutzername,
-#Passwort {
+.bigcontainer {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+
+.Benutzername,
+.Passwort {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
-  display: inline-block;
+  /* display: block; */
   border: none;
   background: #f1f1f1;
+  border-radius: 25px;
 }
 
-#Benutzername:focus,
-#Passwort:focus {
+.Benutzername:focus,
+.Passwort:focus {
   background-color: #ddd;
   outline: none;
 }
 
-button.Login {
+.Login {
   background-color: #055c9d;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: auto;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 40%;
   opacity: 0.9;
+  display: block;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.logincontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }

@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erfolgreich abgemeldet</title>
 </head>
+
 <body>
     <?php
     session_start();
     session_unset();
     session_destroy();
+    header("refresh:2;login.php");
     ?>
-    Sie wurden erfolgreich abgemelden. Melden Sie sich <a href="login.php">hier</a> wieder an.
+    Sie wurden erfolgreich abgemelden. Sie werden in kürze weitergeleitet
+
+
+
+
 </body>
+
 </html>
