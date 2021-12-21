@@ -34,8 +34,8 @@ include "datenbank.php";
                 <th id="aktion"> Aktion </th>
             </tr>
             <tr class="table">
-                <td><input type="text" name="Vorname" placeholder="Vorname"></td>
-                <td><input type="text" name="Nachname" placeholder="Nachname"></td>
+                <td><input type="text" name="Vorname" placeholder="Vorname" required></td>
+                <td><input type="text" name="Nachname" placeholder="Nachname" required</td>
                 <td><select name="Geschlecht" placeholder="Geschlecht">
                         <option value="männlich">männlich </option>
                         <option value="weiblich">weiblich </option>
@@ -43,7 +43,7 @@ include "datenbank.php";
                         <option value="keine Angabe">keine Angabe </option>
                     </select>
                 </td>
-                <td><input type="text" name="Wohnort" placeholder="Wohnort"></td>
+                <td><input type="text" name="Wohnort" placeholder="Wohnort" required></td>
                 <td><input class="table1" type="submit" value=" Absenden"></td>
             </tr>
         </table>

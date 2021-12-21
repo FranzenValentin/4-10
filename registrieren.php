@@ -50,7 +50,7 @@ if ($register == true) {
 
             <div class="logincontainer">
                 <button type="submit" class="Login">Registrieren</button>
-                <a class="Login" href="login.php">Login</a>
+                <a class="Login" href="login.php">Zurück</a>
             </div>
 
         </form>
