@@ -22,22 +22,23 @@ if ($wrong == true) {
     echo "Die Passwörter stimmern nicht überein. Versuchen Sie es erneut.";
 }
 
-if ($register == true) {
+if ($register == true) { //falls man auf Registrieren gedrückt hat, wird ab hier ausgeführt
     $bname = $_POST["bname"] ?? null;
     $psw = $_POST["psw"] ?? null;
     $pswwdh = $_POST["psw-wdh"] ?? null;
-    if ($psw == $pswwdh) {
-        $sql = "INSERT INTO benutzer (Benutzername, Passwort) VALUES ('$bname','$psw')";
+    if ($psw == $pswwdh) { // beide eingegebenen Passwörter werden verglichen und man wird mit einer Info zurück nach registrieren.php geleitet
+        $sql = "INSERT INTO benutzer (Benutzername, Passwort) VALUES ('$bname','$psw')"; //falls beide PW übereinstimmen, wird der Account in der DB angelegt
         mysqli_query($con, $sql) or die(mysqli_error($con));
-        echo "Sie haben sich erfolgreich registriert. Sie werden in Kürze weitergeleitet.";
-        header("location:login.php?reg=$bname");
+        header("location:login.php?reg=$bname"); //man wird zu login.php geleitet. reg wird mit dem BN definiert, um ihn im Loginformular voreinzutragen
     } else {
         header("location:registrieren.php?wrong=true");
     }
 } else {
 ?>
+    <!-- Erstellt Container zur bearbeitung in css  -->
     <div class="bigcontainer">
         <h2>Registrieren</h2>
+        <!-- Erstellt Tabelle zur Eingabe der Accountdaten  -->
         <form action="registrieren.php?register=true" method="POST">
             <label><b>Benutzername</b></label><br>
             <input class="Benutzername" type="text" placeholder="Benutzername" name="bname" required>
@@ -56,9 +57,5 @@ if ($register == true) {
         </form>
     </div>
 <?php } ?>
-
-
-
-
 
 </html>

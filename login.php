@@ -30,18 +30,18 @@ mysqli_set_charset($con, "utf8");
         }
     }
 
-
     $action = $_GET["action"] ?? null;
-
+    // Falls $action als flase definiert ist, waren die Eingaben nicht korrekt und dies wird ausgegeben
     if ($action == "false") {
         echo "Ihr Password oder Benutzername ist falsch.";
     }
     ?>
+    <!-- Erstellt Container zur bearbeitung in css  -->
     <div class="bigcontainer">
 
         <h2>Login</h2>
         <?php
-        $reg = $_GET["reg"] ?? null;
+        $reg = $_GET["reg"] ?? null; //falls man sich im Vorhinein registriert hat, wird in "reg" der Benutzername gespeichert und dann schon in das Input Feld geschrieben (Z.49)
         ?>
         <form action=" login.php?login=true" method="POST">
             <!-- Eingabemaske -->
@@ -59,21 +59,20 @@ mysqli_set_charset($con, "utf8");
     </div>
 
     <?php
-    $t = $_GET["login"] ?? null;
+    $t = $_GET["login"] ?? null; //login ist "true", wenn man davor mit vollständigen eingaben auf den Button Login gedrückt hat (Z.55)
     if ($t == true) {
         $benutzer = $_POST["Benutzername"] ?? null;
         $passwort = $_POST["Passwort"] ?? null;
-        $sql = "SELECT * FROM benutzer WHERE Benutzername = '$benutzer'";
+        $sql = "SELECT * FROM benutzer WHERE Benutzername = '$benutzer'"; // Das Passwort zum eingegebenen Benutzername wird aus der Datenbank abgegriffen
         $result = mysqli_query($con, $sql) or die(mysqli_error($con));
         $row = mysqli_fetch_array($result);
-        $bn = $row['Benutzername'];
         $pw = $row['Passwort'];
-        if ($passwort == $pw) {
+        if ($passwort == $pw) { //Eingegebenes PW wird mit PW aus Datenbank verglichen, falls es korrekt ist werden BN und PW in der Sessionvariable gespeichert
             $_SESSION['Benutzername'] = $bn;
             $_SESSION['Passwort'] = $pw;
-            header("location:output.php");
+            header("location:output.php"); //die Authentifizierung ist abgeschlossen und man wird nach output.php geleitet
         } else {
-            header("location:login.php?action=false");
+            header("location:login.php?action=false"); // Falls das eigegebene PW nicht dem aus der Datenbank entspricht, wird man wieder auf login.php geleitet. Durch action=false wird in Zeile 36 die Info ausgegeben
         }
     }
 
