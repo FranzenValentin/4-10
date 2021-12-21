@@ -18,11 +18,14 @@ mysqli_set_charset($con, "utf8");
 <body>
 
     <h2>Login</h2>
+    <?php
+    $reg = $_GET["reg"] ?? null;
+    ?>
 
     <form action="login_bestätigung.php?login=true" method="POST">
         <!-- Eingabemaske -->
         <label for="Benutzername"><b>Benutzername</b></label>
-        <input type="text" placeholder="Benutzername" name="Benutzername" id="Benutzername" required>
+        <input type="text" placeholder="Benutzername" name="Benutzername" id="Benutzername" value="<?php echo $reg; ?>" required>
         <label for="Passwort"><b>Passwort</b></label>
         <input type="password" placeholder="Passwort" name="Passwort" id="Passwort" required>
 
@@ -34,7 +37,7 @@ mysqli_set_charset($con, "utf8");
     $action = $_GET["action"] ?? null;
 
     if ($action == "false") {
-        echo "Ihr Password oder Benutzername war falsch.";
+        echo "Ihr Password oder Benutzername ist falsch.";
     }
     ?>
 
