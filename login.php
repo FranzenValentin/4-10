@@ -29,8 +29,12 @@ mysqli_set_charset($con, "utf8");
         <label for="Passwort"><b>Passwort</b></label>
         <input type="password" placeholder="Passwort" name="Passwort" id="Passwort" required>
 
-        <button type="submit">Login</button>
-        <a href="registrieren.php">Registrieren </a>
+        <button type="submit" class="Login">Login</button>
+
+    </form>
+
+    <form action="registrieren.php">
+        <button type="submit" class="Login">Registrieren</button>
     </form>
 
     <?php
