@@ -16,7 +16,21 @@ mysqli_set_charset($con, "utf8");
 </head>
 
 <body>
+
+
     <?php
+    // Abfragen, ob Benutzer schon angemeldet ist, wenn ja,dann zu output.php
+    if (isset($_SESSION['Benutzername'])) {
+        $sql = "SELECT * FROM benutzer WHERE Benutzername ='" . $_SESSION['Benutzername'] . "'";
+        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+        $row = mysqli_fetch_array($result);
+        $pw = $row['Passwort'];
+        if ($_SESSION['Passwort'] == $pw) {
+            header("location:output.php");
+        }
+    }
+
+
     $action = $_GET["action"] ?? null;
 
     if ($action == "false") {
