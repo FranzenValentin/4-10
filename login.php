@@ -29,7 +29,7 @@ mysqli_set_charset($con, "utf8");
         <?php
         $reg = $_GET["reg"] ?? null;
         ?>
-        <form action=" login_bestätigung.php?login=true" method="POST">
+        <form action=" login.php?login=true" method="POST">
             <!-- Eingabemaske -->
             <label for="Benutzername"><b>Benutzername</b></label><br>
             <input type="text" placeholder="Benutzername" name="Benutzername" class="Benutzername" value="<?php echo $reg; ?>" required>
@@ -41,11 +41,31 @@ mysqli_set_charset($con, "utf8");
                 <button type="submit" class="Login">Login</button>
                 <a class="Login" href="registrieren.php">Registrieren</a>
             </div>
+        </form>
     </div>
 
+    <?php
+    $t = $_GET["login"] ?? null;
+    if ($t == true) {
+        $benutzer = $_POST["Benutzername"] ?? null;
+        $passwort = $_POST["Passwort"] ?? null;
+        $sql = "SELECT * FROM benutzer WHERE Benutzername = '$benutzer'";
+        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+        $row = mysqli_fetch_array($result);
+        $bn = $row['Benutzername'];
+        $pw = $row['Passwort'];
+        if ($passwort == $pw) {
+            $_SESSION['Benutzername'] = $bn;
+            $_SESSION['Passwort'] = $pw;
+            header("location:output.php");
+        } else {
+            header("location:login.php?action=false");
+        }
+    }
 
 
-    </form>
+
+    ?>
 
 </body>
 
