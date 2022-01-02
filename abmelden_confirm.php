@@ -15,11 +15,7 @@
     session_destroy();
     header("refresh:2;login.php");
     ?>
-    Sie wurden erfolgreich abgemelden. Sie werden in kürze weitergeleitet
-
-
-
-
+    Sie wurden erfolgreich abgemelden. Sie werden in kürze weitergeleitet.
 </body>
 
 </html>

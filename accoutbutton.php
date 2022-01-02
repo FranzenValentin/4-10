@@ -11,7 +11,6 @@
 <body>
     <p class="Account">Angemeldet als <?php echo "$_SESSION[Benutzername]"; ?></p>
     <a href="abmelden_confirm.php" id="abmelden">Abmelden</a>
-
 </body>
 
 </html>
