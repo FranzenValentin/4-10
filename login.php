@@ -67,6 +67,7 @@ mysqli_set_charset($con, "utf8");
         $result = mysqli_query($con, $sql) or die(mysqli_error($con));
         $row = mysqli_fetch_array($result);
         $pw = $row['Passwort'];
+        $bn = $row['Benutzername'];
         if ($passwort == $pw) { //Eingegebenes PW wird mit PW aus Datenbank verglichen, falls es korrekt ist werden BN und PW in der Sessionvariable gespeichert
             $_SESSION['Benutzername'] = $bn;
             $_SESSION['Passwort'] = $pw;
@@ -75,8 +76,6 @@ mysqli_set_charset($con, "utf8");
             header("location:login.php?action=false"); // Falls das eigegebene PW nicht dem aus der Datenbank entspricht, wird man wieder auf login.php geleitet. Durch action=false wird in Zeile 36 die Info ausgegeben
         }
     }
-
-
 
     ?>
 

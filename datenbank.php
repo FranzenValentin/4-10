@@ -3,8 +3,6 @@ session_start();
 $con = mysqli_connect("localhost", "21_franzen_valentin", "Passwort", "21_franzen_valentin_4-10");
 mysqli_set_charset($con, "utf8");
 
-// echo $_SESSION['Benutzername'];
-
 if (isset($_SESSION['Benutzername'])) {
     $sql = "SELECT * FROM benutzer WHERE Benutzername ='" . $_SESSION['Benutzername'] . "'";
     $result = mysqli_query($con, $sql) or die(mysqli_error($con));
