@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "21_franzen_valentin", "Passwort", "21_franzen_valentin_4-10");
+$con = mysqli_connect("localhost", "root", "", "21_franzen_valentin_4-10");
 mysqli_set_charset($con, "utf8");
 ?>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ mysqli_set_charset($con, "utf8");
     </div>
 
     <?php
-    $t = $_GET["login"] ?? null; //login ist "true", wenn man davor mit vollständigen eingaben auf den Button Login gedrückt hat (Z.55)
+     $t = $_GET["login"] ?? null; //login ist "true", wenn man davor mit vollständigen eingaben auf den Button Login gedrückt hat (Z.55)
     if ($t == true) {
         $benutzer = $_POST["Benutzername"] ?? null;
         $passwort = $_POST["Passwort"] ?? null;
