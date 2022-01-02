@@ -32,21 +32,21 @@ include "datenbank.php";
         
         <table class='customers'>
 
-        <tr>
-            <th> Vorname </th>
-            <th> Nachname </th>
-            <th> Geschlecht </th>
-            <th> Wohnort </th>
-            <th id='aktion'> Aktion </th>
-        </tr>
+            <tr>
+                <th> Vorname </th>
+                <th> Nachname </th>
+                <th> Geschlecht </th>
+                <th> Wohnort </th>
+                <th id='aktion'> Aktion </th>
+            </tr>
 
-        <tr class='table'>
+            <tr class='table'> //erstellt eine Tabelle mit der zu bearbeiteten Zeile.
 
-            <td><input type='text' name='Vorname' value='" . $row['Vorname'] . "'></td>
-            <td><input type='text' name='Nachname' value='" . $row['Nachname'] . "'></td>
-            <td><select name='Geschlecht' > 
-                <option value='" . $row['Geschlecht'] . "'>" . $row['Geschlecht'] . "</option>";
-            if ($row['Geschlecht'] != 'männlich') {
+                <td><input type='text' name='Vorname' value='" . $row['Vorname'] . "'></td> //value: Voreintragung
+                <td><input type='text' name='Nachname' value='" . $row['Nachname'] . "'></td>
+                <td><select name='Geschlecht' > 
+                    <option value='" . $row['Geschlecht'] . "'>" . $row['Geschlecht'] . "</option>";
+            if ($row['Geschlecht'] != 'männlich') { //if, damit in der Auswahl nicht mehr die bereits ausgewählte Option angezeigt wird.
                 echo "<option value='männlich'>männlich </option>";
             }
             if ($row['Geschlecht'] != 'weiblich') {
@@ -59,12 +59,12 @@ include "datenbank.php";
                 echo "<option value='keine Angabe'>keine Angabe </option>";
             }
             echo "
-            </select></td>
-            <td><input type='text' name='Wohnort' value='" . $row['Wohnort'] . "'></td>
-            
-            <td><input type='submit' value='Aktualisieren!' class='table1'> </td>
+                    </select></td>
+                <td><input type='text' name='Wohnort' value='" . $row['Wohnort'] . "'></td>
+                
+                <td><input type='submit' value='Aktualisieren!' class='table1'> </td>
 
-        </tr>
+            </tr>
         </table>
         </form>";
         }
@@ -80,10 +80,10 @@ include "datenbank.php";
     $action = $_GET["action"] ?? null;
     $P_ID = $_GET["ID_Kunden"] ?? null;
 
-    if ($action == "bearbeiten_true") {
+    if ($action == "bearbeiten_true") { //Wenn die Änderung bestätigt wurde, werden die Daten abgefragt und in der DB aktualisiert
         $query = "UPDATE `personen` SET `Nachname`='$nachname',`Vorname`='$vorname',`Geschlecht`='$geschlecht',`Wohnort`='$wohnort' WHERE `P_ID`=$P_ID";
         mysqli_query($con, $query) or die(mysqli_error($con));
-        header("location: output.php");
+        header("location: output.php"); // danach wird man wieder auf die Hauptseite weitergeleitet
     }
 
 
