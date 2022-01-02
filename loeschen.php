@@ -1,5 +1,5 @@
 <?php
-include "datenbank.php";
+include "start.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
