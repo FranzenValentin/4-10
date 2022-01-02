@@ -54,7 +54,7 @@ include "datenbank.php";
 
         echo 'Möchten Sie den Datensatz wirklich löschen?       ';
 
-        echo "<a href='bestätigung.php?bestätigung=1&id_kunden=$P_ID' class='a'>ja</a> 
+        echo "<a href='loeschen.php?bestätigung=1&id_kunden=$P_ID' class='a'>ja</a> 
             <a href='output.php' class='a'>nein</a>";
     }
 

@@ -1,5 +1,5 @@
 <?php
-   include "datenbank.php";
+include "datenbank.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
 
 </head>
 
@@ -70,7 +70,7 @@
                     <td> $Nachname </td>
                     <td> $Geschlecht </td>
                     <td> $Wohnort </td>
-                    <td> <a href='bestätigung.php?action=löschen&id_kunden=" . $row['P_ID'] . "' class='a'>löschen</a> 
+                    <td> <a href='loeschen.php?action=löschen&id_kunden=" . $row['P_ID'] . "' class='a'>löschen</a> 
                     <a href='bearbeiten.php?action=bearbeiten&id_kunden=" . $row['P_ID'] . "' class='a'>bearbeiten</a> </td></td>
                 </tr> ";
     }
